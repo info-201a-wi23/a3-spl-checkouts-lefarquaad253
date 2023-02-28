@@ -7,17 +7,18 @@ library("scales")
 library("stringr")
 source("summary.R")
 
-# Make bar chart 
-hba <- fic_lit %>% 
-  filter(CheckoutYear == "2022") %>% 
-  filter(Title == "The House of Broken Angels")
+# compare the most number of checkouts and the least number of checkouts - to display the range 
+# vector of the month and the amount of checkouts 
+group_month <- fic_lit %>% 
+  group_by(CheckoutMonth) %>% 
+  summarize(Checkouts = sum(Checkouts))
 
-chartThree <- ggplot(data = hba) +
-  geom_col(mapping = aes(x = CheckoutMonth,
-                         y = Checkouts,
-                         fill = Checkouts)) + 
-  labs(title = "2022 checkouts of The House of Broken Angels",
-       x = "Month",
-       y = "Number of Checkouts") + 
-  scale_x_continuous(breaks = seq(1, 12, 1)) + 
-  scale_y_continuous(breaks = seq(0, 2950, 500))
+# Make pie chart: 
+month <- c("January", "April")
+checkout <- c(54189, 20391)
+
+
+
+piechart <- pie(checkout, month, main = "Months with the most and least checkouts for Fiction & Literature", col = c("pink" ,"grey"))
+
+legend <- legend("topright", c("Janurary: 54189 Checkouts", "April: 20391 Checkouts"), cex = 0.8, fill = c("pink", "grey"))

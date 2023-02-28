@@ -17,26 +17,19 @@ fic_lit <- df_spl %>%
 num_checkout <- fic_lit %>% 
   summarize(count = n())
 
-# 3. In 2022, what book(s) had the most checkout and what book(s) had the least? 
+# 3. In 2022, what book(s) had the most checkout? 
 book_max_checkout <- fic_lit %>%
   filter(CheckoutYear == "2022") %>%
   filter(Checkouts == max(Checkouts, na.rm = TRUE)) %>%
   pull(Title)
 
-book_min_checkout <- fic_lit %>%
-  filter(CheckoutYear == "2022") %>%
-  filter(Checkouts == min(Checkouts, na.rm = TRUE)) %>%
-  pull(Title)
-
-# 4. What was the most number of books published in a year with the subject "Fiction, Literature" 
-
-# most_num_pub <- fic_lit %>% 
-#   group_by(PublicationYear) %>% 
-#   summarize(books = n()) %>% 
-#   #needs help 
-#   print(max(most_num_pub$books))%>% 
-#   pull(PublicationYear)
-
+# 4. What was the most average number of checkouts each month in 2022? 
+avg_checkout <- fic_lit %>% 
+  filter(CheckoutYear == "2022") %>% 
+  group_by(CheckoutMonth) %>% 
+  summarize(Checkouts = mean(Checkouts, na.rm = TRUE)) %>% 
+  summarize(mean(Checkouts))
+  
 
 # 5. What is the difference between Audiobook and Ebook? 
 num_audio <- fic_lit %>%

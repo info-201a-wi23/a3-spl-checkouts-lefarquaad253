@@ -12,82 +12,43 @@ source("chart1_example.R")
 source("chart2_example.R")
 source("Chart 3.R")
 ```
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+This analysis focuses on Seattle's Public Library (SPL) data set with all items checked out in 2022-2023. Data within a year provides a closer understanding of the trends and other topics of interest. With this in mind, I was curious to know what book subject was the most popular in 2022. Additionally, I wanted to be informed about what people in Seattle like to read in the most recent year. The summary below will showcase my findings to these curiosities. 
 
 ### Summary Information
-
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+Looking at the data set, in 2023, the month January was the only month recorded. Therefore, the analysis only focuses on the year 2022, where each month was recorded. With this filtered, the subject with the most checkout in 2022 was Fiction & Literature. This made sense to me because the subject Fiction is extremely popular and can have multiple targeted audiences. The total number of books checked out in that subject is 60,820. The book with the most checkouts from that value is *The House of Broken Angels*. Expanding on the numerical values of this data set, the average number of checkouts each month in 2022 is 5.30 books. Looking closer in the Fiction & Literature data set, I noticed that there weren't any physical books that were checked out. Instead, each book was checked out either as an Audiobook or Ebook. The range between the Audiobook and Ebook is 11,900. This number surprised me because this means that there is a large range of preference between Audiobooks and Ebooks. 
 
 ### The Dataset
-
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
-
+This data was collected and published by Seattle Public Library on January 31, 2017. There are many parameters in this data. For example, Usage Class, Checkout Type, Material Type, Checkout Year, Checkout Month, Checkouts in that month, Title of the book, ISBN code, Creator of the book, Subjects, Publisher, and the Publication Year.  Seattle Public Library collects and generates the data digitally through each checkout and can trace back transaction way before 2017. They use the parameters as guidance to filter each data into the data frame. This data was collected to make this information more accessible to the public. It came from the Open Data initiative which demands city departments to make their data "open by preference" to promote transparency and civic problem solving. An ethical question we need to consider when working with this data are the type of books that are being checked out. For example, does the Seattle Public Library have a range of inclusive books and ones that empower the minority communities? Additionally, do these books get checked out as often as other popular mainstream books? This is important to question if the data set is representative to the community or have the resources for many to read about. A possible problem about this data set is that there are a lot of books that are the same but have different titles. Some include the creator's name in the title and others have "(unabridged)". This can be a possible problem when attempting to find the true value of the number of checkouts of a specific book due to the variation of title names. 
 
 ### First Trends Over Time Chart
+In 2022, the most popular subject checked out was Fiction & Literature. I wanted to see the trend and identify where the popularity began over the year. Additionally, I wanted to compare this subject to another subject that I enjoy reading - Fiction & Mystery. Below showcases the trend of both subjects over the year. 
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+Fiction & Literature dominates Fiction & Mystery by thousands of checkouts each month. Fiction & Literature had a strong start of the year with 25,151 checkouts. Then it slowly started to decrease each month, hitting the lowest in April at 20,391 checkouts. After April, the subject began to grow more popular reaching the peak during September with 28,134 checkouts. It dipped back down afterwards, but finished the year strong with a higher number of checkouts than the beginning of the year at 26,715 checkouts. 
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
+Fiction & Mystery is not as popular, but has a consistent trend. It started the year with 12,344 checkouts and dipped to the lowest peak of the year in May at 10,162 checkouts. Afterwards, it holds a consistent trend and does not have any drastic changes. This subject finished 2022 year peaking at 12,340 checkouts. 
 
 ```{r , warning = FALSE, message=FALSE}
 ggplotly(chartOne)
 ```
 
 ### Second Trends Over Time Chart
+From the summary, the range of Audiobooks and Ebooks was 11,900. This made me question which digital platform people prefer reading from. Additionally, I wanted to investigate if there was a switch of preference over time or if one digital platform was ultimately preferred over the other. Below showcases the number of Audiobooks and Ebooks checked out for the subject Fiction & Literature in 2022. 
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+From the graph, there is a clear preference of digital platform. People preferred Ebooks over Audiobooks and there was no change in preference over time. In the beginning of the year, there was 3,867 more people who preferred Ebooks over Audiobooks. Ebooks peaked on September at 16,454 checkout and had the lowest number of checkouts on March with 12,589 checkouts. As for Audiobooks, it peaked in October with 11,987 checkouts and had the lowest number of checkouts on April with 7,693 checkouts. The trend of both of the data is quite similar. For example, the both started off strong and have similar peaks and lows during the same months. However, Audiobooks had a more drastic low and Ebooks had a more drastic peak. 
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
 
 ```{r , warning = FALSE, message=FALSE}
 ggplotly(chartTwo)
 ```
 
 ### Your Choice
+When examining the data, I was curious to know which month had the lowest and highest number of checkouts in 2022 for Fiction & Literature. Therefore, a pie chart was decided to compare. A pie chart is extremely problematic since a human eye cannot fully comprehend and distinguish the angles of a pie chart. Therefore, a pie chart can conduct misleading information. However, this pie chart fits in this data because it is only comparing two categorical variable that are drastically different from one another. For that reason, a pie chart was conducted to evaluate the months with the most and least checkouts for Fiction & Literature. 
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+Reviewing the pie chart, January had the most number of checkouts and April had the least. The difference between the number of checkouts between those two months is 33,798 checkouts.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
 
-Here's an example of how to run an R script inside an RMarkdown file:
 ```{r , warning = FALSE, message=FALSE}
-ggplotly(chartThree)
+source("Chart 3.R")
+piechart
 ```
