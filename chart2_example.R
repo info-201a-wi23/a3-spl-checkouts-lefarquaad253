@@ -1,4 +1,5 @@
-# load libraries 
+# Chart 2: Trend of Audio book vs Ebook for the popular subject: Fiction and Literature 
+
 library(ggplot2)
 library("plotly")
 library("scales")
@@ -22,7 +23,6 @@ ebook <- fic_lit %>%
 
 material_type <- full_join(audio, ebook)
 
-# Chart 2: Trend of Audio book vs Ebook for the popular subject: Fiction and Literature 
 chartTwo <- ggplot(data = material_type, aes(x = CheckoutMonth,
                                        y = total_checkout,
                                        group_by = MaterialType,
@@ -34,23 +34,3 @@ chartTwo <- ggplot(data = material_type, aes(x = CheckoutMonth,
   labs(title = "Number of Audiobook and Ebook checkout for Fiction & Literature in 2022",
        x = "Month",
        y = "Number of Checkouts")
-
-
-# Practice <- ggplot(data = ebook) +
-#   geom_point(mapping = aes(x = CheckoutMonth,
-#                            y = total_checkout), color = "purple") +
-#   geom_line(mapping = aes(x = CheckoutMonth,
-#                           y = total_checkout), color = "purple") + 
-#   geom_point(data = audio,
-#              aes(x = CheckoutMonth,
-#                  y = total_checkout), color = "red") + 
-#   geom_line(data = audio, 
-#             aes(x = CheckoutMonth,
-#                 y = total_checkout), color = "red") + 
-#   labs(title = "Number of Audiobook and Ebook checkout for Fiction & Literature in 2022",
-#        x = "Month",
-#        y = "Number of Checkouts") + 
-#   scale_x_continuous(breaks = seq(1, 12, 1)) + 
-#   scale_y_continuous(breaks = seq(0, 16454, 1000))
-
-# How to create legend 

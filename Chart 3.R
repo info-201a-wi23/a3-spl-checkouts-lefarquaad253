@@ -1,19 +1,15 @@
-# Number of checkouts for the most popular book of Fiction & Literature 
+# Chart 3: Number of checkouts for the most popular book of Fiction & Literature 
 
-# Load libraries 
 library(ggplot2)
 library("plotly")
 library("scales")
 library("stringr")
 source("summary.R")
 
-# compare the most number of checkouts and the least number of checkouts - to display the range 
-# vector of the month and the amount of checkouts 
 group_month <- fic_lit %>% 
   group_by(CheckoutMonth) %>% 
   summarize(Checkouts = sum(Checkouts))
 
-# Make pie chart: 
 month <- c("January", "April")
 checkout <- c(54189, 20391)
 
